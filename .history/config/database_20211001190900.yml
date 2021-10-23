@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode
+
+
+development:
+  <<: *default
+  database: arupakahp
+
+ 
+test:
+  <<: *default
+  database: arupakahp_test
+
+
+production:
+  <<: *default
+  database: arupakahp_production
+  username: arupakahp
+  password: <%= ENV['ARUPAKAHP_DATABASE_PASSWORD'] %>

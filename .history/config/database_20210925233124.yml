@@ -1,0 +1,15 @@
+default:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # 以下の3つを追加
+  username: projectname
+  password: password
+  # RailsサーバとPostgreSQLサーバが同じ場合
+  host: localhost
+development:
+  <<: *default
+  database: projectname_development
+test:
+  <<: *default
+  database: projectname_test
